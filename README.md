@@ -1,59 +1,84 @@
-# MongoDB Fundamentals - Week 1
+# README — Run queries.js
 
-## Setup Instructions
+Prerequisites
+- Node.js installed (recommended v14+)
+- MongoDB running locally (mongod) OR a MongoDB Atlas connection string
+- A terminal (PowerShell or CMD) on Windows
 
-Before you begin this assignment, please make sure you have the following installed:
+Setup
+1. Open a terminal and change to the project folder:
+   cd "c:\Software development\MERN ASSIGNMENTS\MONGODB WEEK ONE\mongodb-data-layer-fundamentals-and-advanced-techniques-fabian819"
 
-1. **MongoDB Community Edition** - [Installation Guide](https://www.mongodb.com/docs/manual/administration/install-community/)
-2. **MongoDB Shell (mongosh)** - This is included with MongoDB Community Edition
-3. **Node.js** - [Download here](https://nodejs.org/)
+2. Install dependencies:
+   npm install mongodb
+   (If package.json exists with dependencies, just run `npm install`.)
 
-### Node.js Package Setup
+3. Ensure your MongoDB server is running:
+   - Local (example): run `mongod` in a separate terminal (or start the MongoDB Windows service).
+   - Atlas: get the connection string from Atlas.
 
-Once you have Node.js installed, run the following commands in your assignment directory:
+Configure connection (if needed)
+- The script uses a URI variable at the top of `queries.js`:
+  const uri = 'mongodb://localhost:27017';
+- To use Atlas, replace that value with your Atlas connection string (including username/password) or edit the file accordingly.
 
-```bash
-# Initialize a package.json file
-npm init -y
+Populate sample data (optional but recommended)
+- Run the provided inserter to add sample books:
+  node insert_books.js
 
-# Install the MongoDB Node.js driver
-npm install mongodb
-```
+Run the queries
+- Execute the queries script (this script will run queries and perform updates/inserts/deletes):
+  node queries.js
 
-## Assignment Overview
+Notes
+- queries.js uses the official MongoDB Node.js driver; it will modify data (updates, deletes, bulk writes). Back up data if necessary.
+- If index creation fails due to duplicate titles, either remove the `unique: true` option or clean duplicates first.
+- To inspect results visually, use MongoDB Compass or mongosh.
 
-This week focuses on MongoDB fundamentals including:
-- Creating and connecting to MongoDB databases
-- CRUD operations (Create, Read, Update, Delete)
-- MongoDB queries and filters
-- Aggregation pipelines
-- Indexing for performance
+Troubleshooting
+- "Cannot connect": verify `mongod` is running and the URI is correct.
+- "Module not found: mongodb": run `npm install mongodb`.
+- For permission/service issues on Windows, start the MongoDB service from Services or run mongod with administrator privileges.
 
-## Submission
+```// filepath: c:\Software development\MERN ASSIGNMENTS\MONGODB WEEK ONE\mongodb-data-layer-fundamentals-and-advanced-techniques-fabian819\README.md
+# README — Run queries.js
 
-Complete all the exercises in this assignment and push your code to GitHub using the provided GitHub Classroom link.
+Prerequisites
+- Node.js installed (recommended v14+)
+- MongoDB running locally (mongod) OR a MongoDB Atlas connection string
+- A terminal (PowerShell or CMD) on Windows
 
-## Getting Started
+Setup
+1. Open a terminal and change to the project folder:
+   cd "c:\Software development\MERN ASSIGNMENTS\MONGODB WEEK ONE\mongodb-data-layer-fundamentals-and-advanced-techniques-fabian819"
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Install MongoDB locally or set up a MongoDB Atlas account
-4. Run the provided `insert_books.js` script to populate your database
-5. Complete the tasks in the assignment document
+2. Install dependencies:
+   npm install mongodb
+   (If package.json exists with dependencies, just run `npm install`.)
 
-## Files Included
+3. Ensure your MongoDB server is running:
+   - Local (example): run `mongod` in a separate terminal (or start the MongoDB Windows service).
+   - Atlas: get the connection string from Atlas.
 
-- `Week1-Assignment.md`: Detailed assignment instructions
-- `insert_books.js`: Script to populate your MongoDB database with sample book data
+Configure connection (if needed)
+- The script uses a URI variable at the top of `queries.js`:
+  const uri = 'mongodb://localhost:27017';
+- To use Atlas, replace that value with your Atlas connection string (including username/password) or edit the file accordingly.
 
-## Requirements
+Populate sample data (optional but recommended)
+- Run the provided inserter to add sample books:
+  node insert_books.js
 
-- Node.js (v18 or higher)
-- MongoDB (local installation or Atlas account)
-- MongoDB Shell (mongosh) or MongoDB Compass
+Run the queries
+- Execute the queries script (this script will run queries and perform updates/inserts/deletes):
+  node queries.js
 
-## Resources
+Notes
+- queries.js uses the official MongoDB Node.js driver; it will modify data (updates, deletes, bulk writes). Back up data if necessary.
+- If index creation fails due to duplicate titles, either remove the `unique: true` option or clean duplicates first.
+- To inspect results visually, use MongoDB Compass or mongosh.
 
-- [MongoDB Documentation](https://docs.mongodb.com/)
-- [MongoDB University](https://university.mongodb.com/)
-- [MongoDB Node.js Driver](https://mongodb.github.io/node-mongodb-native/) 
+Troubleshooting
+- "Cannot connect": verify `mongod` is running and the URI is correct.
+- "Module not found: mongodb": run `npm install mongodb`.
+- For permission/service issues on Windows, start the MongoDB service from Services or run mongod with administrator privileges.
